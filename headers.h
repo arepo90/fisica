@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-double m, g, k, L, hf, h0, h, t, vix, viy, vi, a, x;
-double d, f, G, H, R, S, T, U;
+double m, g, k, L, hf, h0, h, t, vix, viy, vi, a, x, mR;
+double d, f, G, H, R, S, T, U, x1, x2;
 
 double findF(double a, double b, double c){
     return ((3.0 * c / a) - ((b * b) / (a * a))) / 3.0;
@@ -56,14 +56,35 @@ void solveTime(){
     }
 }
 
-void solve(){
+void solveQ(double A, double B, double C){
+    double discriminant = (B * B) - (4 * A * C);
+    if(discriminant > 0){
+        x1 = (-B + sqrt(discriminant)) / (2.0 * A);
+        x2 = (-B - sqrt(discriminant)) / (2.0 * A);
+    }
+    else{
+        x1 = -B / (2.0 * A);
+        x2 = x1;
+    }
+}
+
+//Todavia no jala
+void solve1(){
+    h = hf - h0;
+    vi = 1.0 / sqrt(m / k);
+    mR = vi * vi / g * -1;
+    double temp = 0.5 * -g * pow((L / vi), 2.0);
+    cout << '\n' << temp << " " << -L << " " << (temp + h) << '\n';
+    solveQ(temp, -L, (temp + h));
+    cout << x1 * 180.0 / M_PI << " " << x2 * 180.0 / M_PI << '\n';
+}
+
+void solve2(){
     solveTime();
     h = hf - h0;
     vix = L / t;
     viy = -1.0 * ((0.5 * g * t * t) - h) / t;
     vi = sqrt((vix * vix) + (viy * viy));
-
-    a = atan(viy / vix) * 180 / M_PI;
-
+    a = atan(viy / vix) * 180.0 / M_PI;
     x = vi * sqrt(m / k);
 }
