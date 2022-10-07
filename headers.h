@@ -45,7 +45,7 @@ void solveTime(){
 
         double T = -1.0 * (G / 2.0) - sqrt(H), U;
 
-        if(T >= 0){ U = (pow(T, (1 / 3.0)));
+        if(T >= 0) U = (pow(T, (1 / 3.0)));
         else U = (pow((-1.0 * T), (1 / 3.0))) * -1.0;
 
         double x1 = (S + U) - (b / (3.0 * a));
