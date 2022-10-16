@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-double m, g, k, L, hf, h0, h, t, vix, viy, vi, a, x, mR;
+double m, g, k, L, hf, h0, h, t, vix, viy, vi, a, x;
 double d, f, G, H, R, S, T, U, x1, x2;
 
 double findF(double a, double b, double c){
@@ -68,15 +68,22 @@ void solveQ(double A, double B, double C){
     }
 }
 
-//Todavia no jala
+bool safetyCheck(){
+    double check = (pow(vi, 2.0) / (2*g)) - ((g*pow(L, 2.0)) / (2*pow(vi, 2.0)));
+    if(check > h) return false;
+    return true;
+}
+
 void solve1(){
     h = hf - h0;
-    vi = 1.0 / sqrt(m / k);
-    mR = vi * vi / g * -1;
-    double temp = 0.5 * -g * pow((L / vi), 2.0);
-    cout << '\n' << temp << " " << -L << " " << (temp + h) << '\n';
-    solveQ(temp, -L, (temp + h));
-    cout << x1 * 180.0 / M_PI << " " << x2 * 180.0 / M_PI << '\n';
+    x = 1.0;
+    vi = x * sqrt((k/m));
+    double temp = -0.5 * g * pow((L/vi), 2.0);
+    solveQ(temp, L, (temp-h));
+    a = atan(x1);
+    vix = vi * cos(a); viy = vi * sin(a);
+    t = L / vix;
+    a *= 180.0 / M_PI;
 }
 
 void solve2(){

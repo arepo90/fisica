@@ -12,7 +12,11 @@ void getData(){
 int main(){
     getData();
     solve1();
-    cout << "Angulo: " << a << " Compresion: " << x << "\nDebug? (y/n) " << mR;
+    if(safetyCheck()){
+        cout << "Error, intentando segundo metodo...\n";   
+        solve2();
+    }
+    cout << "Angulo: " << a << " Compresion: " << x << "\nDebug? (y/n) ";
     char op; cin >> op;
     if(op == 'y') cout << "Tiempo: " << t << "\nVelocidad inicial: " << vi << "\nVix: " << vix << "\nViy: " << viy << "\nDelta Y: " << h << '\n';
     return 0;
